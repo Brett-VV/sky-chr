@@ -76,6 +76,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     /**
      * 查看购物车
+     *
      * @return
      */
     public List<ShoppingCart> showShoppingCart() {
@@ -86,5 +87,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 .build();
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
         return list;
+    }
+
+    /**
+     * 清空购物车
+     */
+    public void cleanShoppingCart() {
+        //获取微信用户id
+        Long userId = BaseContext.getCurrentId();
+        shoppingCartMapper.deleteByUserId(userId);
     }
 }
