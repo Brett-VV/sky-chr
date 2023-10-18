@@ -352,8 +352,19 @@ public class OrderServiceImpl implements OrderService {
                 BeanUtils.copyProperties(orders, orderVO);
                 String orderDishes = getOrderDishesStr(orders);
 
+                //地址
+                AddressBook addressBook = addressBookMapper.getById(orders.getAddressBookId());
+
+                if(addressBook != null){
+                    orderVO.setAddress(addressBook.getDetail());
+                }else {
+                    orderVO.setAddress("地址不存在");
+//                    throw new OrderBusinessException("地址不存在");
+                }
+
                 //将订单菜品信息封装到orderVO中，并添加到orderVOList
                 orderVO.setOrderDishes(orderDishes);
+
                 orderVOList.add(orderVO);
             }
         }
