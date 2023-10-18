@@ -45,7 +45,6 @@ sky:
     user-secret-key: brett
     user-ttl: 7200000
     user-token-name: authentication
-
   alioss:
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}
@@ -54,3 +53,8 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
+  shop:
+    address: 重庆市巴南区南泉街道白鹤林16号
+  baidu:
+    ak: mGj45URIB3TSHROh8M7B1voPAnq4ql4G
+
